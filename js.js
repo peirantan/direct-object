@@ -1,8 +1,20 @@
 // Toggle Bios
-let bios = document.getElementsByClassName("bio")
-for (i = 0; i < bios.length; i++) {
-	let currentBio = bios[i]
-	currentBio.addEventListener("click", function() {
-		this.classList.toggle("active")
-	})
+document.addEventListener("click", function(e) {
+	if (e.target.matches(".name")) {
+		e.target.parentElement.classList.toggle("active")
+	}
+})
+
+// Dark Mode
+const date = new Date()
+const hr = date.getHours()
+
+function determineMode() {
+	if (hr > 18) {
+		document.documentElement.dataset.theme = "dark"
+	} else {
+		document.documentElement.dataset.theme = "light"
+	}
 }
+
+window.onload = determineMode

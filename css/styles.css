@@ -1,11 +1,20 @@
 /* Color Variables */
-:root {
-	--eigengrau: #16161D;
-	--grey: #97979B;
+html {
+	--text-primary: #16161D;
+	--text-secondary: #97979B;
+	--background: #F8F8F8;
+	--background-blur: rgba(248, 248, 248, 0.1);
 	--desktop-margin: 3rem;
 	--desktop-nav-top-padding: 1.25rem;
 	--mobile-margin: 1.25rem;
 	--mobile-nav-top-padding: 0.875rem;
+}
+
+html[data-theme='dark'] {
+	--text-primary: #E5E5E6;
+	--text-secondary: #7D7D82;
+	--background: #161619;
+	--background-blur: rgba(22, 22, 25, 0.1);
 }
 
 p {
@@ -14,11 +23,11 @@ p {
 
 a {
 	text-decoration: none;
-	color: var(--grey);
+	color: var(--text-secondary);
 }
 
 a:hover {
-	color: var(--eigengrau);
+	color: var(--text-primary);
 }
 
 body {
@@ -28,7 +37,18 @@ body {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: var(--desktop-margin);
-	background-color: #F8F8F8;
+	background-color: var(--background);
+	color: var(--text-primary);
+	pointer-events: none;
+}
+
+@media screen and (max-width: 560px) {
+	body {
+		justify-content: flex-start;
+		flex-direction: column;
+		padding-left: var(--mobile-margin);
+		padding-right: var(--mobile-margin)
+	}
 }
 
 .allcaps {
@@ -44,12 +64,35 @@ nav {
 	left: 0;
 	display: flex;
 	justify-content: flex-end;
+	pointer-events: auto;
+}
+
+@media screen and (max-width: 560px) {
+	nav {
+		width: 100%;
+		position: relative;
+		z-index: initial;
+		top: initial;
+		left: initial;
+		justify-content: space-between;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 .nav_logo {
 	position: fixed;
 	top: var(--desktop-nav-top-padding);
 	left: var(--desktop-margin);
+}
+
+@media screen and (max-width: 560px) {
+	.nav_logo {
+		position: relative;
+		top: inherit;
+		left: inherit;
+		padding-top: var(--mobile-nav-top-padding);
+	}
 }
 
 .nav_menu {
@@ -59,29 +102,38 @@ nav {
 	max-width: 25rem;
 }
 
+@media screen and (max-width: 560px) {
+	.nav_menu {
+		max-width: unset;
+		padding-top: var(--mobile-nav-top-padding);
+		margin-right: 0;
+	}
+}
+
 .nav_menu p.active {
-	border-bottom: 1px solid var(--grey);
+	border-bottom: 1px solid var(--text-secondary);
 }
 
 .nav_menu p.active:hover {
-	border-bottom: 1px solid var(--eigengrau);
+	border-bottom: 1px solid var(--text-primary);
 }
 
-.nav_menu p:first-child {
+/*.nav_menu p:first-child {
 	margin-right: 1.25rem;
 }
 
 .nav_menu p:nth-child(n+2) {
 	margin-right: 0.5rem;
 }
-
+*/
 
 /* Main */
 .main {
-	color: var(--eigengrau);
+	color: var(--text-primary);
 	width: 25rem;
 	padding-top: 8.75rem;
 	position: relative;
+	pointer-events: auto;
 }
 
 .main:before {
@@ -92,9 +144,20 @@ nav {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-color: rgba(248, 248, 248, 0.1);
+	background-color: var(--background-blur);
 	backdrop-filter: blur(6px);
 	z-index: -1;
+}
+
+@media screen and (max-width: 560px) {
+	.main {
+		padding-top: 6.875rem;
+		margin-bottom: 6.875rem;
+		width: 100%;
+	}
+	.main:before {
+		display: none;
+	}
 }
 
 .main p {
@@ -126,6 +189,15 @@ nav {
 	margin-right: 0.4375rem;
 }
 
+@media screen and (max-width: 560px) {
+	.main .submit:before {
+		position: relative;
+		display: inline-block;
+		top: inherit;
+		left: inherit;
+	}
+}
+
 /* Footer Block */
 footer {
 	max-width: 22.5rem;
@@ -133,10 +205,24 @@ footer {
 	bottom: 1.5rem;
 	left: var(--desktop-margin);
 	z-index: -2;
+	pointer-events: auto;
+}
+
+@media screen and (max-width: 560px) {
+	footer {
+		max-width: initial;
+		width: 100%;
+		position: relative;
+		left: inherit;
+		bottom: inherit;
+		z-index: auto;
+		padding-bottom: 1.5rem;
+	}
 }
 
 footer .section_title {
 	margin-top: 1.125rem;
+	font-style: italic;
 }
 
 footer .section_title:first-child {
@@ -144,16 +230,16 @@ footer .section_title:first-child {
 }
 
 .bio .name {
-	color: var(--grey);
+	color: var(--text-secondary);
 	cursor: pointer;
 }
 
 .bio.active .name {
-	color: var(--eigengrau);
+	color: var(--text-primary);
 }
 
 .bio .name:hover {
-	color: var(--eigengrau);
+	color: var(--text-primary);
 }
 
 .bio p:last-child {
@@ -168,5 +254,5 @@ footer .section_title:first-child {
 	opacity: 1;
 	pointer-events: all;
 	padding-bottom: 0.5rem;
-	color: var(--grey);
+	color: var(--text-secondary);
 }
