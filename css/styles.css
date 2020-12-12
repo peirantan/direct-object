@@ -86,6 +86,10 @@ nav {
 	left: var(--desktop-margin);
 }
 
+.nav_logo a {
+	color: var(--text-primary);
+}
+
 @media screen and (max-width: 560px) {
 	.nav_logo {
 		position: relative;
@@ -114,18 +118,23 @@ nav {
 	border-bottom: 1px solid var(--text-secondary);
 }
 
+.nav_menu p.active a {
+	color: var(--text-primary);
+}
+
 .nav_menu p.active:hover {
 	border-bottom: 1px solid var(--text-primary);
 }
 
-/*.nav_menu p:first-child {
+.nav_menu p:first-child {
 	margin-right: 1.25rem;
+	border-bottom: none;
 }
 
 .nav_menu p:nth-child(n+2) {
 	margin-right: 0.5rem;
 }
-*/
+
 
 /* Main */
 .main {
@@ -165,9 +174,12 @@ nav {
 	margin-bottom: 0.5625rem;
 }
 
+.main p.indented {
+	padding-left: 1.5rem;
+}
+
 .main .section_title {
 	margin-top: 2.75rem;
-
 	font-style: italic;
 }
 
@@ -197,6 +209,10 @@ nav {
 		top: inherit;
 		left: inherit;
 	}
+}
+
+.main .submission_guide {
+	margin-top: 3rem;
 }
 
 /* Footer Block */
