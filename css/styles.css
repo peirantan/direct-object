@@ -126,13 +126,17 @@ nav {
 	border-bottom: 1px solid var(--text-primary);
 }
 
-.nav_menu p:first-child {
+.nav_menu p.site_title {
 	margin-right: 1.25rem;
 	border-bottom: none;
 }
 
 .nav_menu p:nth-child(n+2) {
 	margin-right: 0.5rem;
+}
+
+.nav_menu p.buy {
+	margin-left: 0.75rem;
 }
 
 
@@ -157,6 +161,10 @@ nav {
 	backdrop-filter: blur(6px);
 	-webkit-backdrop-filter: blur(6px);
 	z-index: -1;
+}
+
+.main.buy {
+	margin-bottom: 1.5rem;
 }
 
 @media screen and (max-width: 560px) {
@@ -209,6 +217,11 @@ nav {
 		top: inherit;
 		left: inherit;
 	}
+}
+
+.buy_preview {
+	width: 100%;
+	margin-top: 2.75rem;
 }
 
 .main .submission_guide {
@@ -272,4 +285,10 @@ footer .section_title:first-child {
 	pointer-events: all;
 	padding-bottom: 0.5rem;
 	color: var(--text-secondary);
+}
+
+/* -- Paypal button specific -- */
+
+.paypal-button-tagline {
+	display: none;
 }
