@@ -315,7 +315,8 @@ footer .section_title:first-child {
 
 .buy_popup_modal {
 	width: 50%;
-	max-width: 720px;
+	max-width: 560px;
+	max-height: calc(100% - 8rem);
 	background-color: var(--background);
 	border-radius: 5.5px;
 	display: flex;
