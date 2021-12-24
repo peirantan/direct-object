@@ -1,7 +1,14 @@
 // Toggle Bios
 document.addEventListener("click", function(e) {
+	var buy_popup = document.getElementById("buy_popup")
 	if (e.target.matches(".name")) {
 		e.target.parentElement.classList.toggle("active")
+	}
+	else if (e.target.matches(".open_buy")) {
+		buy_popup.classList.add("active")
+	}
+	else if (e.target.matches(".buy_popup_dismiss") || e.target === buy_popup) {
+		buy_popup.classList.remove("active")
 	}
 })
 
